@@ -1,0 +1,16 @@
+<p>story-list works!</p>
+
+<p>Stories: ( {{stories.length}} )</p>
+
+<hr>
+<section
+  *ngFor="let story of stories"  (click)="selectStory(story)"
+  [class.is-selected]="story === selectedStory">
+
+  <app-story-item [story]="story"></app-story-item>
+</section>
+<hr>
+
+<div *ngIf="selectedStory">
+  <app-story-item [story]="selectedStory"></app-story-item>
+</div>
