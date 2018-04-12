@@ -1,16 +1,20 @@
-<p>story-list works!</p>
+<h2>Stories: ( {{stories.length}} )</h2>
 
-<p>Stories: ( {{stories.length}} )</p>
+<div class="container">
+  <div class="sidebar">
+    <section
+      *ngFor="let story of stories"  (click)="selectStory(story)"
+      [class.is-selected]="story === selectedStory">
 
-<hr>
-<section
-  *ngFor="let story of stories"  (click)="selectStory(story)"
-  [class.is-selected]="story === selectedStory">
+      <app-story-item [story]="story"></app-story-item>
+    </section>
+  </div>
 
-  <app-story-item [story]="story"></app-story-item>
-</section>
-<hr>
+  <div class="main" *ngIf="selectedStory">
+    <app-story-item [story]="selectedStory"></app-story-item>
+  </div>
 
-<div *ngIf="selectedStory">
-  <app-story-item [story]="selectedStory"></app-story-item>
+  <div class="main" *ngIf="!selectedStory">
+    <p>Select a story on the menu</p>
+  </div>
 </div>

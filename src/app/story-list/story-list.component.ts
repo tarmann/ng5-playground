@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Story } from '../story';
 import { StoryService } from '../story.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-story-list',
@@ -15,10 +16,13 @@ export class StoryListComponent implements OnInit {
   selectedStory: Story;
 
   selectStory(story: Story): void {
+    this.messageService.add(`Clicked on ${story.id}`);
     this.selectedStory = story;
   }
 
-  constructor(private storyService: StoryService) { }
+  constructor(
+    private storyService: StoryService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.getStories();

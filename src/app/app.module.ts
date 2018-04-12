@@ -13,6 +13,8 @@ import { StoryListComponent } from './story-list/story-list.component';
 import { StoryItemComponent } from './story-item/story-item.component';
 
 import { StoryService } from './story.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,17 @@ import { StoryService } from './story.service';
     AppTestComponent,
     MyTestComponent,
     StoryListComponent,
-    StoryItemComponent
+    StoryItemComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
-    StoryService
+    StoryService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

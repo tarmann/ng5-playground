@@ -1,3 +1,12 @@
-.is-selected {
-  background: #cccccc;
+.container {
+  display: flex;
+}
+
+.menu {
+  background: red;
+}
+
+.main {
+  padding: 20px;
+  flex-basis: 80%;
 }

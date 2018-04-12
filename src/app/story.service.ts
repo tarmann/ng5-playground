@@ -4,15 +4,18 @@ import { Story } from './story';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-import { STORIES } from '../mock-stories';
+import { MessageService } from './message.service';
+
+import { STORIES } from './mock-stories';
 
 @Injectable()
 export class StoryService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   getStories(): Observable<Story[]> {
-     return of(STORIES);
+    this.messageService.add('StoryService: fetched stories');
+    return of(STORIES);
   }
 
 }

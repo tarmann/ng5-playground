@@ -11,4 +11,9 @@ describe('ng-project App', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
+
+  it('should find stories', () => {
+    page.navigateTo();
+    expect(page.getStories().length).toEqual(4);
+  })
 });
